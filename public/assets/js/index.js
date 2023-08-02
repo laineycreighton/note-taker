@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-//defining the routes for the api
+//defining the api get route
 app.get('api/notes', (req, res) => {
   fs.readFile(dbFilePath, 'utf8', (err, data) => {
     if (err) {
@@ -34,6 +34,7 @@ app.get('api/notes', (req, res) => {
   });
 });
 
+//defining the api post route
 app.post('api/notes', (req, res) => {
   const newNote = req.body;
   fs.readFile(dbFilePath, 'utf8', (err, data) => {
@@ -55,6 +56,27 @@ app.post('api/notes', (req, res) => {
     }
   });
 });
+
+//defining the api delete route
+app.delete('/api/notes/:id', (req, res) => {
+  const noteIdToDelete = parseInt(req.params.id);
+  fs.readFile(dbFilePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading notes from the database:', err);
+      res.status(500).json({ error: 'Error reading notes from the database' });
+    } else {
+      const notes = JSON.parse(data);
+      const updatedNotes = notes.filter((note) => note.id !== noteIdToDelete);
+      fs.writeFile(dbFilePath, JSON.stringify(updatedNotes), (err) => {
+        if (err) {
+          console.error('Error deleting note from the database:', err);
+          res.status(500).json({ error: 'Error deleting note from the database' });
+        } else {
+          res.json({ message: 'Note deleted successfully' });
+        }
+      });
+    }
+  });
 
 let noteTitle;
 let noteText;
