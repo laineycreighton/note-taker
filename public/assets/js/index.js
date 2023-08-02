@@ -10,6 +10,52 @@ app.use(express.json());
 //serves static files from the public directory
 app.use(express.static('public'));
 
+const dbFilePath = path.join(__dirname, 'db', 'db.json');
+
+//defining the servers routes for the html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+//defining the routes for the api
+app.get('api/notes', (req, res) => {
+  fs.readFile(dbFilePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading notes from the database:', err);
+      res.status(500).json({ error: 'Error reading notes from the database'});
+    } else {
+      const notes = JSON.parse(data);
+      res.json(notes);
+    }
+  });
+});
+
+app.post('api/notes', (req, res) => {
+  const newNote = req.body;
+  fs.readFile(dbFilePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading notes from the database:', err);
+      res.status(500).json({ error: 'Error reading notes from the database'});
+    } else {
+      const notes = JSON.parse(data);
+      newNotes.id = notes.length + 1;
+      notes.push(newNote);
+      fs.writeFile(dbFilePath, JSON.stringify(notes), (err) => {
+        if (err) {
+          console.error('Error writing note to the database:', err);
+          res.status(500).json({ error: 'Error writing note to the database'});
+        } else {
+          res.json(newNote);
+        }
+      });
+    }
+  });
+});
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
