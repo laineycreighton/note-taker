@@ -1,3 +1,12 @@
+//instanciate express
+const express = require('express');
+const app = express();
+
+//add middleware
+app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
+app.use(express.static('public'));
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
