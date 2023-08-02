@@ -2,9 +2,12 @@
 const express = require('express');
 const app = express();
 
-//add middleware
+//MIDDLEWARE
+//allows the server to parse incoming data
 app.use(express.urlencoded({ extended: true}));
+//allows the server to parse incoming JSON data
 app.use(express.json());
+//serves static files from the public directory
 app.use(express.static('public'));
 
 let noteTitle;
