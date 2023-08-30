@@ -56,9 +56,9 @@ This project serves as a demonstration of using Express.js to build a note takin
 
 ## Deployment
 
-Website URL: [Lake Tahoe](https://laineycreighton.github.io/landing-page/)
+Website URL: [Note Taker](https://note-taker-lc-f3a7a9f96b3c.herokuapp.com/)
 
-![alt text](./assets/images/lake-tahoe-landing-page.jpg)
+![alt text](./public/assets/images/note-taker.png)
 
 <br>
 
