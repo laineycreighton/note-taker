@@ -1,93 +1,3 @@
-//instanciate express
-const express = require('express');
-const app = express();
-const fs = require('fs');
-const path = require('path');
-
-//MIDDLEWARE
-//allows the server to parse incoming data
-app.use(express.urlencoded({ extended: true}));
-//allows the server to parse incoming JSON data
-app.use(express.json());
-//serves static files from the public directory
-app.use(express.static('public'));
-
-const dbFilePath = path.join(__dirname, 'db', 'db.json');
-
-//defining the servers routes for the html
-app.get('/api/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-app.post('/api/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'notes.html'));
-});
-
-//defining the api get route
-app.delete('/api/notes/:id', (req, res) => {
-  fs.readFile(dbFilePath, 'utf8', (err, data) => {
-    if (err) {
-      console.error('Error reading notes from the database:', err);
-      res.status(500).json({ error: 'Error reading notes from the database'});
-    } else {
-      const notes = JSON.parse(data);
-      res.json(notes);
-    }
-  });
-});
-
-//defining the api post route
-app.post('api/notes', (req, res) => {
-  const newNote = req.body;
-  fs.readFile(dbFilePath, 'utf8', (err, data) => {
-    if (err) {
-      console.error('Error reading notes from the database:', err);
-      res.status(500).json({ error: 'Error reading notes from the database'});
-    } else {
-      const notes = JSON.parse(data);
-      newNotes.id = notes.length + 1;
-      notes.push(newNote);
-      fs.writeFile(dbFilePath, JSON.stringify(notes), (err) => {
-        if (err) {
-          console.error('Error writing note to the database:', err);
-          res.status(500).json({ error: 'Error writing note to the database'});
-        } else {
-          res.json(newNote);
-        }
-      });
-    }
-  });
-});
-
-//defining the api delete route
-app.delete('/api/notes/:id', (req, res) => {
-  const noteIdToDelete = parseInt(req.params.id);
-  fs.readFile(dbFilePath, 'utf8', (err, data) => {
-    if (err) {
-      console.error('Error reading notes from the database:', err);
-      res.status(500).json({ error: 'Error reading notes from the database' });
-    } else {
-      const notes = JSON.parse(data);
-      const updatedNotes = notes.filter((note) => note.id !== noteIdToDelete);
-      fs.writeFile(dbFilePath, JSON.stringify(updatedNotes), (err) => {
-        if (err) {
-          console.error('Error deleting note from the database:', err);
-          res.status(500).json({ error: 'Error deleting note from the database' });
-        } else {
-          res.json({ message: 'Note deleted successfully' });
-        }
-      });
-    }
-  });
-});
-
-const PORT = process.env.PORT || 3000;
-
-// start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
-
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -173,7 +83,7 @@ const handleNoteDelete = (e) => {
   e.stopPropagation();
 
   const note = e.target;
-  const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
+  const noteId = parseInt(JSON.parse(note.parentElement.getAttribute('data-note')).id);
 
   if (activeNote.id === noteId) {
     activeNote = {};
