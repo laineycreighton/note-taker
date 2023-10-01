@@ -7,6 +7,7 @@
   - [Deployment](#deployment)
   - [Installation](#installation)
   - [Author](#author)
+  - [Contributing](#contributing)
   - [License](#license)
 
 ## Description
@@ -26,19 +27,21 @@ This project serves as a demonstration of using Express.js to build a note takin
 
 ## Technology Used
 
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+**Front End**
 <br>
 
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) &nbsp;&nbsp;&nbsp;&nbsp;
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) &nbsp;&nbsp;&nbsp;&nbsp;
+
+**Back End**
 <br>
 
-![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
-<br>
-
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-<br>
-
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white) &nbsp;&nbsp;&nbsp;&nbsp;
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) &nbsp;&nbsp;&nbsp;&nbsp;
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+<br>
+
+**Deployment**
 <br>
 
 ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
@@ -76,29 +79,18 @@ Website URL: [Note Taker](https://note-taker-lc-f3a7a9f96b3c.herokuapp.com/)
 
 ### Lainey Creighton
 
-_Currently a student in the UC Berkeley Full Stack Coding Bootcamp. Contact Below:_
+**Contact me using the information below:**
+
+[![Email](./public/assets/images/email.svg)](mailto:dev.lainey@gmail.com) &nbsp;&nbsp;&nbsp;&nbsp; 
+[![LinkedIn](./public/assets/images/linkedin.svg)](https://www.linkedin.com/in/lainey-creighton/) &nbsp;&nbsp;&nbsp;&nbsp; 
+[![Portfolio](./public/assets/images/globe.svg)](https://laineycreighton.com/) &nbsp;&nbsp;&nbsp;&nbsp; 
+[![GitHub](./public/assets/images/github.svg)](https://github.com/laineycreighton)
 
 <br>
 
-![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)
-<br>
+## Contributing
 
-[dev.lainey@gmail.com](dev.lainey@gmail.com)
-<br>
-<br>
-
-![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)
-<br>
-
-[https://www.linkedin.com/in/lainey-creighton/](https://www.linkedin.com/in/lainey-creighton/)
-<br>
-<br>
-
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
-<br>
-
-[https://github.com/laineycreighton](https://github.com/laineycreighton)
-
+Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to submit a pull request.
 <br>
 
 ## License
